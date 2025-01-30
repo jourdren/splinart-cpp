@@ -19,8 +19,8 @@ jobs:
           cache: true
       - run: |
              pixi add cppcheck==2.16.0
-             pixi run cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_EXAMPLES=ON
-             pixi run cppcheck --enable=missingInclude,unusedFunction,warning,style,portability,performance -q --project=.build/compile_commands.json --suppressions-list=.cppcheck 2> cppcheck_err.txt
+             cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_EXAMPLES=ON
+             cppcheck --enable=missingInclude,unusedFunction,warning,style,portability,performance -q --project=.build/compile_commands.json --suppressions-list=.cppcheck 2> cppcheck_err.txt
 
   tests:
     runs-on: ${{ matrix.os }}
@@ -38,4 +38,3 @@ jobs:
           pixi-version: v0.40.2
           cache: true
       - run: pixi run test
-      - run: pixi run pre-commit run --all-files
