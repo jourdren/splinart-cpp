@@ -3,6 +3,11 @@ name: "Run CI"
 on: pull_request
 
 jobs:
+  python_tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
   tests:
     runs-on: ubuntu-latest
     steps:
