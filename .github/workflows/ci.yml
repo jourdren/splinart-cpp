@@ -7,7 +7,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-          os: 
+          os:
             - ubuntu-latest
             - macos-latest
             - windows-latest
@@ -18,3 +18,10 @@ jobs:
           pixi-version: v0.40.2
           cache: true
       - run: pixi run test
+      - run: pixi run pre-commit run --all-files
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.1
