@@ -25,7 +25,9 @@ jobs:
         run : bash -c "if [[ -s cppcheck_err.txt ]]; then cat cppcheck_err.txt ; exit 1; fi"
   tests:
     runs-on: ${{ matrix.os }}
-    needs: pre-commit
+    needs:
+      - pre-commit
+      - cpp-check
     strategy:
       matrix:
           os:
