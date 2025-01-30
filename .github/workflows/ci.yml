@@ -21,6 +21,8 @@ jobs:
              pixi add cppcheck
              pixi run cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_EXAMPLES=ON
              pixi run cppcheck --enable=missingInclude,unusedFunction,warning,style,portability,performance -q --project=.build/compile_commands.json --suppressions-list=.cppcheck 2> cppcheck_err.txt
+      - name: check
+        run : bash -c "if [[ -s cppcheck_err.txt ]]; then cat cppcheck_err.txt ; exit 1; fi"
   tests:
     runs-on: ${{ matrix.os }}
     needs: pre-commit
