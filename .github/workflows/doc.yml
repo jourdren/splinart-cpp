@@ -24,6 +24,7 @@ permissions:
 jobs:
   # Build job
   build:
+    if: github.repository == 'jourdren/splinart-cpp'
     # Specify runner +  build & upload the static files as an artifact
     runs-on: ubuntu-latest
     steps:
