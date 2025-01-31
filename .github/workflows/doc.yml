@@ -2,6 +2,11 @@ name: "Doc"
 
 on: pull_request
 
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   # Build job
   build:
