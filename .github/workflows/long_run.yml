@@ -2,8 +2,8 @@ name: "long check"
 
 on:
     pull_request:
-    schedule:
-        - cron: "*/4 0 * * *"
+#    schedule:
+#        - cron: "*/4 0 * * *"
 
 jobs:
     check_new_commit:
