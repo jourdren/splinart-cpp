@@ -3,7 +3,7 @@ name: "long check"
 on:
     pull_request:
     schedule:
-        - cron: "45 14 * * *"
+        - cron: "5 15 31 1 *"
 
 jobs:
     check_new_commit:
