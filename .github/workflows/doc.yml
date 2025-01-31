@@ -2,6 +2,9 @@ name: "Doc"
 
 on:
   pull_request:
+    paths:
+      - 'doc/**'
+      - '.github/workflows/doc.yml'
     branches:
       main
   push:
