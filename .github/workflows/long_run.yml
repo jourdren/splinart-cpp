@@ -16,6 +16,7 @@ jobs:
       - id: new_commits
         run: echo "nb_commits=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_OUTPUT
 
+
   clang-tidy-check:
     needs: check_new_commit
     if: needs.check_new_commit.outputs.nb_commits > 0
