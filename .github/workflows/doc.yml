@@ -19,7 +19,7 @@ jobs:
         run: pixi run doc
       - name: Upload static files as artifact
         id: deployment
-        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        uses: actions/upload-pages-artifact@v3
         with:
           path: doc/build/html/
 
